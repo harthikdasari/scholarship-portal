@@ -25,7 +25,7 @@ const StudentLogin = () => {
                 ? { email: formData.email, password: formData.password }
                 : { ...formData, role: 'student' };
 
-            const res = await axios.post(`http://localhost:5000/api/auth${endpoint}`, payload);
+            const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth${endpoint}`, payload);
 
             localStorage.setItem('user', JSON.stringify(res.data.user));
             navigate('/student-dashboard');
