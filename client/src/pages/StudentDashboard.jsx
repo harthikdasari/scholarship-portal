@@ -23,7 +23,7 @@ const StudentDashboard = () => {
 
     const fetchApplications = async () => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/scholarship/student/${user._id}`);
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'https://scholarship-portal-6z3a.onrender.com'}/api/scholarship/student/${user._id}`);
             setApplications(res.data);
         } catch (error) {
             console.error('Error fetching applications', error);
@@ -32,7 +32,7 @@ const StudentDashboard = () => {
 
     const fetchInstitutions = async () => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/institutions`);
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'https://scholarship-portal-6z3a.onrender.com'}/api/auth/institutions`);
             setInstitutions(res.data);
         } catch (error) {
             console.error('Error fetching institutions', error);
@@ -42,7 +42,7 @@ const StudentDashboard = () => {
     const handleApply = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/scholarship/apply`, {
+            await axios.post(`${import.meta.env.VITE_API_URL || 'https://scholarship-portal-6z3a.onrender.com'}/api/scholarship/apply`, {
                 studentId: user._id,
                 institutionId: formData.institutionId,
                 formDetails: {

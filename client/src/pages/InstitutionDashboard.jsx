@@ -13,7 +13,7 @@ const InstitutionDashboard = () => {
 
     const fetchApplications = async () => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/verification/institution/${user._id}`);
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'https://scholarship-portal-6z3a.onrender.com'}/api/verification/institution/${user._id}`);
             setApplications(res.data);
         } catch (error) {
             console.error('Error fetching applications', error);
@@ -29,7 +29,7 @@ const InstitutionDashboard = () => {
     const handleVerification = async (appId, status) => {
         const remarks = prompt("Enter remarks (optional):");
         try {
-            await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/verification/verify/${appId}`, {
+            await axios.put(`${import.meta.env.VITE_API_URL || 'https://scholarship-portal-6z3a.onrender.com'}/api/verification/verify/${appId}`, {
                 status,
                 remarks
             });

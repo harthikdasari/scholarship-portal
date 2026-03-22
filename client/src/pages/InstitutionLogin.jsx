@@ -26,7 +26,7 @@ const InstitutionLogin = () => {
                 ? { email: formData.email, password: formData.password }
                 : { ...formData, role: 'institution' };
 
-            const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth${endpoint}`, payload);
+            const res = await axios.post(`${import.meta.env.VITE_API_URL || 'https://scholarship-portal-6z3a.onrender.com'}/api/auth${endpoint}`, payload);
 
             localStorage.setItem('user', JSON.stringify(res.data.user));
             navigate('/institution-dashboard');
