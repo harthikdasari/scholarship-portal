@@ -1,3 +1,5 @@
+require("dotenv").config();   // ✅ ADD THIS
+
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -7,13 +9,11 @@ const app = express();
 
 // Connect to Database
 connectDB();
+
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
-
-// Mock Data Store
-const { users, applications } = require('./data/store');
 
 // Routes
 const authRoutes = require('./routes/auth');
@@ -29,5 +29,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running`);
 });
